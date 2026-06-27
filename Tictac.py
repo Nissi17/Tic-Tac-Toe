@@ -76,7 +76,11 @@ def check_winner(board, player):
 
 def is_board_full(board):
     """Check if the board is full (draw condition)."""
-    
+
+    for row in board:
+        if ' ' in row:
+            return False
+
     return True
 
 
