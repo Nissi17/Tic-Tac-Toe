@@ -121,6 +121,32 @@ def get_move(board, player):
 
 def play_game():
     """Main function to run the Tic-Tac-Toe game."""
+
+    board = create_board()
+    current_player = 'X'
+
+    while True:
+
+        print_board(board)
+
+        row, col = get_move(board, current_player)
+        board[row][col] = current_player
+
+        if check_winner(board, current_player):
+            print_board(board)
+            print(f"🎉 Player {current_player} wins!")
+            break
+
+        if is_board_full(board):
+            print_board(board)
+            print("🤝 It's a draw!")
+            break
+
+        # Switch player
+        if current_player == 'X':
+            current_player = 'O'
+        else:
+            current_player = 'X'
     
 
 # ============================================================
